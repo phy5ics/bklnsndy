@@ -1,0 +1,34 @@
+!!! 5
+%html
+	%head
+		%title 
+			Bklnsndy
+		/[if lt IE 9]
+			%script{:type => "text/javascript", :src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}			
+			
+		%link(rel="stylesheet" type="text/css" href="/global.css")
+			
+		%script{:type => "text/javascript", :src => "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
+		%script{:type => "text/javascript"}
+			:plain
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', '']);
+				_gaq.push(['_setDomainName', 'BASE_APP']);
+				_gaq.push(['_setAllowLinker', true]);
+				_gaq.push(['_trackPageview']);
+
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+					
+	%body
+		%header
+			.headerContent
+				%h1 
+					%span Bklnsndy
+					%span{:class=>"title"}
+				#logo Bklnsndy
+				
+		=yield

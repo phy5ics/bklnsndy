@@ -1,0 +1,59 @@
+development:
+  sessions:
+      default:
+        database: BKLNSNDY_DEV
+        hosts:
+          - localhost
+  options:
+    allow_dynamic_fields: true
+    identity_map_enabled: true
+    include_type_for_serialization: true
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: true
+    use_activesupport_time_zone: false
+    use_utc: true
+
+test:
+  sessions:
+      default:
+        database: BKLNSNDY_TEST
+        hosts:
+          - localhost
+  options:
+    allow_dynamic_fields: true
+    identity_map_enabled: true
+    include_type_for_serialization: true
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: true
+    use_activesupport_time_zone: false
+    use_utc: true
+
+staging:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+  options:
+    allow_dynamic_fields: true
+    identity_map_enabled: true
+    include_type_for_serialization: true
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: true
+    use_activesupport_time_zone: false
+    use_utc: true        
+    
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+  options:
+    allow_dynamic_fields: true
+    identity_map_enabled: true
+    include_type_for_serialization: true
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: true
+    use_activesupport_time_zone: false
+    use_utc: true
