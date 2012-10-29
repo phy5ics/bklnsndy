@@ -54,9 +54,119 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	top: 0
 	left: 0
 
+@mixin center
+	margin: 0 auto
+	
+@mixin adelle
+	font-family: "adelle", serif
+	font-style: normal
+	font-weight: 300
+
+@mixin frankie
+	font-family: "franklin-gothic-ext-comp-urw-n7", "franklin-gothic-ext-comp-urw", sans-serif
+	font-style: normal
+	font-weight: 700
+
 $red: #cc0000
 $black: #333
 $white: #fff
 
 a:focus 
 	border: dotted 1px #000
+
+body
+	background: #eaeaea
+
+#preheader
+	background: #000
+	+isBlock
+	width: 100%
+	height: 6px
+
+header
+	+center
+	+isBlock
+	padding: 60px 0 0px 0
+	width: 860px
+	border-bottom: 1px solid #999
+	
+	#logo
+		+isIR
+		+isLeftBlock
+		width: 96px
+		height: 104px
+		background: url(/gfx/hurricane.png) no-repeat 0 0
+		right: 0px
+		top: -32px
+
+h1, h2, h3, h4, h5
+	+adelle
+
+.report
+	span.meta
+		+frankie
+		font-size: 86px
+		color: #ccc
+		text-transform: uppercase
+
+h1
+	font-size: 46px
+	
+h3
+	font-size: 16px
+	
+p
+	+frankie
+
+#intro
+	+center
+	+isBlock
+	width: 860px
+	padding: 0 0 0 200px
+
+.content
+	+center
+	padding: 36px 0 36px 0
+	width: 660px
+
+#temp
+	+frankie
+	font-size: 86px
+
+#humidity
+	+frankie
+	font-size: 86px
+
+#dewpoint
+	+frankie
+	font-size: 86px
+
+#pressure
+	+frankie
+	font-size: 86px
+
+#light
+	+frankie
+	font-size: 86px
+
+#wind_speed
+	+frankie
+	font-size: 86px
+
+#wind_direction
+	+frankie
+	font-size: 86px
+
+#rainfall
+	+frankie
+	font-size: 86px
+
+footer
+	+center
+	width: 100%
+	height: 400px
+	background: #000
+	
+
+
+

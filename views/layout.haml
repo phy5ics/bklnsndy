@@ -2,7 +2,7 @@
 %html
 	%head
 		%title 
-			Bklnsndy
+			bklnsndy
 		/[if lt IE 9]
 			%script{:type => "text/javascript", :src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}			
 			
@@ -10,8 +10,9 @@
 			
 		%script{:type => "text/javascript", :src => "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
 		
-		%script{:type => "text/javascript", :src => "http://js.pusher.com/1.11/pusher.min.js"}
-		%script{:type => "text/javascript", :src => "js/pusher_client.js"}
+		%script{:type => "text/javascript", :src => "http://js.pusher.com/1.12/pusher.min.js"}
+		
+		%script{:type => "text/javascript", :src => "//use.typekit.net/wbg1gxj.js"}
 		
 		%script{:type => "text/javascript"}
 			:plain
@@ -20,21 +21,37 @@
 				    var channel = pusher.subscribe('weather');
 				
 				    channel.bind('weather_data', function(data) {
-				   		$('#messages').append("<div class=\"message\">" + data.message + "</div>");
+				   		// $('#messages').append("<div class=\"message\">" + data.message + "</div>");
+						
+						$('#temp').html(data.message[1]);
+						$('#humidity').html(data.message[2]);
+						$('#dewpoint').html(data.message[3]);
+						$('#pressure').html(data.message[4]);
+						$('#light').html(data.message[5]);
+						$('#wind_speed').html(data.message[6]);
+						$('#wind_direction').html(data.message[7]);
+						$('#rainfall').html(data.message[8]);
+
 					});
 					
 				    Pusher.log = function(message) {
 						if (window.console && window.console.log) window.console.log(message);
 					};
 					
-				    
 				});
+				
+				try{Typekit.load();}catch(e){}
 	%body
+		#preheader
+		
 		%header
 			.headerContent
 				%h1 
-					%span Bklnsndy
+					%span#logo
+					%span Greenpoint / Sandy
 					%span{:class=>"title"}
-				#logo Bklnsndy
 				
 		=yield
+		
+		%footer
+			&copy; bklnsndy 2012
