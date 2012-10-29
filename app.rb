@@ -5,8 +5,9 @@ require "sinatra/reloader" if development?
 require 'haml'
 require 'sass'
 require 'mongoid'
-require 'serialport'
 
+require 'serialport'
+require 'pusher'
 require './models/weather'
 
 set :environment, ENV['RACK_ENV']
@@ -16,6 +17,10 @@ configure do
 		Mongoid.load!('config/mongoid.yml')
 		# Mongoid.logger = nil
 	end
+	
+	Pusher.app_id = '8269'
+	Pusher.key = '7837ec4d76bcffdb62c5'
+	Pusher.secret = 'db0d31f1c373b7bc25aa'
 	
 	port_str = "/dev/tty.RN42-B7F5-SPP"
   baud_rate = 9600
@@ -29,7 +34,8 @@ configure do
     # data = printf("%c", serial.getc)
     # puts data
     data = serial.readline
-    # print data
+    
+    puts data
     
     arr = data.split(',')
     
@@ -55,9 +61,7 @@ configure do
     	rainfall: arr[8],
     )
 
-    # puts serial.readline
-    
-    
+    Pusher['weather'].trigger('weather_data', :message => arr)    
     
   end
   
