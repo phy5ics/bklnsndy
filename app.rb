@@ -18,9 +18,9 @@ configure do
 		# Mongoid.logger = nil
 	end
 	
-	Pusher.app_id = '8269'
-	Pusher.key = '7837ec4d76bcffdb62c5'
-	Pusher.secret = 'db0d31f1c373b7bc25aa'
+	Pusher.app_id = ENV['PUSHER_ID']
+	Pusher.key = ENV['PUSHER_KEY']
+	Pusher.secret = ENV['PUSHER_SECRET']
   
 end
 
@@ -28,6 +28,7 @@ module Bklnsndy
   class App < Sinatra::Base
    
     get '/' do
+      @pusher_key = '7837ec4d76bcffdb62c5'
       haml :index
     end
     
